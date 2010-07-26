@@ -14,20 +14,19 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.011';
-
+our $VERSION = '0.012';
 
 =head1 SYNOPSIS
 
     use String::FriendlyID;
 
-    my $fid = FriendlyID->new();
+    my $fid = String::FriendlyID->new();
         # or set a size 
-        #   my $fid = FriendlyID->new( size => 9999 )
+        #   my $fid = String::FriendlyID->new( size => 9999 )
         # or set a select chars to be used
-        #   my $fid = FriendlyID->new( valid_chars => [ qw/A B C D 1 2 3/ ] )
+        #   my $fid = String::FriendlyID->new( valid_chars => [ qw/A B C D 1 2 3/ ] )
         # or set both
-        #   my $fid = FriendlyID->new( 
+        #   my $fid = String::FriendlyID->new( 
         #       valid_chars => [ qw/E F G H 4 5 6 7 8 9/ ], 
         #       size => 9999, 
         #   );
@@ -56,7 +55,7 @@ characters."
     use String::FriendlyID;
 
     my $domain = 'http://shorter.url/';
-    my $fid = FriendlyID->new();
+    my $fid = String::FriendlyID->new();
     my $some_url = 'http://somedomain.com/with/a/very/long/url/i/dont/know/why/';
     my $short_code = $fid->encode($some_url);
     my $short_url = join( '/', $domain, $short_code );
@@ -68,7 +67,7 @@ characters."
     my $nickname = 'Atan';
     my $phone_number = '09177654321';
     my $unique_identifier = join( '-', $nickname, $phone_number );
-    my $coupon_code_generator_tied_to_id = FriendlyID->new();
+    my $coupon_code_generator_tied_to_id = String::FriendlyID->new();
     my $coupon_code = $coupon_code_generator_tied_to_id->encode( $unique_identifier );
 
     store_in_coupon_db($coupon_code);
@@ -233,7 +232,7 @@ Jonathan D. Gutierrez, C<< <atanation at cpan.org> >>
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-friendlyid at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=FriendlyID>.  I will be notified, and then you'll
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=String-FriendlyID>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 
