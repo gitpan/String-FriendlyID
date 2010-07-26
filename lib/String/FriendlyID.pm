@@ -14,7 +14,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.011';
 
 
 =head1 SYNOPSIS
@@ -228,7 +228,7 @@ sub encode {
 
 =head1 AUTHOR
 
-Jonathan D. Gutierrez, C<< <jgutierrez at cpan.org> >>
+Jonathan D. Gutierrez, C<< <atanation at cpan.org> >>
 
 =head1 BUGS
 
