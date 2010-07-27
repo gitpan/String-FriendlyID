@@ -10,11 +10,11 @@ String::FriendlyID - A slightly modified perl port of Will Hardy's "Friendly ID"
 
 =head1 VERSION
 
-Version 0.01
+Version 0.013
 
 =cut
 
-our $VERSION = '0.012';
+our $VERSION = '0.013';
 
 =head1 SYNOPSIS
 
@@ -30,12 +30,10 @@ our $VERSION = '0.012';
         #       valid_chars => [ qw/E F G H 4 5 6 7 8 9/ ], 
         #       size => 9999, 
         #   );
-    my $some_string = '12345';
-    my $friendly_id = $fid->encode($some_string);
+    my $some_numerical_string = '12345';
+    my $friendly_id = $fid->encode($some_numerical_string);
 
 =head1 SIGNIFICANCE / USES
-
-=head2 Original Usage (excerpt from Will Hardy's pydoc)
 
 "Description: Invoice numbers like "0000004" are unprofessional in that they 
 expose how many sales a system has made, and can be used to monitor
@@ -45,34 +43,6 @@ These functions convert an integer (from eg an ID AutoField) to a
 short unique string. This is done simply using a perfect hash
 function and converting the result into a string of user friendly
 characters."
-
-=head2 Other Uses
-
-=over 2
-
-=item * URL Shortening
-
-    use String::FriendlyID;
-
-    my $domain = 'http://shorter.url/';
-    my $fid = String::FriendlyID->new();
-    my $some_url = 'http://somedomain.com/with/a/very/long/url/i/dont/know/why/';
-    my $short_code = $fid->encode($some_url);
-    my $short_url = join( '/', $domain, $short_code );
-
-=item * Unique Coupon / Promo Code
-
-    use String::FriendlyID;
-
-    my $nickname = 'Atan';
-    my $phone_number = '09177654321';
-    my $unique_identifier = join( '-', $nickname, $phone_number );
-    my $coupon_code_generator_tied_to_id = String::FriendlyID->new();
-    my $coupon_code = $coupon_code_generator_tied_to_id->encode( $unique_identifier );
-
-    store_in_coupon_db($coupon_code);
-
-=back
 
 =head1 ATTRIBUTES
 
@@ -159,7 +129,7 @@ has 'period' => (
             }
         }
 
-        warn "No valid period could be found for" . $self->size . "Try avoiding prime numbers!";
+        warn "No valid period could be found for size=[" . $self->size . "], try avoiding prime numbers!";
         return undef;
 
     },
@@ -221,7 +191,11 @@ sub encode {
     my $self   = shift;
     my $num    = shift; 
 
-    return ( ($num > $self->size) or ($num < 0) ) ? undef : $self->friendly_number( $self->perfect_hash($num) ); 
+    if ($num =~ /\D/){
+        warn "Non numeric string on num=[" . $num . "], try to input numbers / numerical strings";
+    }
+
+    return ( (int($num) > int($self->size)) or (int($num) < 0) ) ? undef : $self->friendly_number( $self->perfect_hash( int($num) ) ); 
 
 }
 
