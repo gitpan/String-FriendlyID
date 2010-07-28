@@ -6,15 +6,15 @@ use Moose;
 
 =head1 NAME 
 
-String::FriendlyID - A slightly modified perl port of Will Hardy's "Friendly ID" (http://www.djangosnippets.org/snippets/1249/) 
+String::FriendlyID - A slightly modified perl port of Will Hardy's "Friendly ID" (http://www.djangosnippets.org/snippets/1249/). Invoice numbers like "0000004" are unprofessional in that they expose how many sales a system has made, and can be used to monitor the rate of sales over a given time.  They are also harder for customers to read back to you, especially if they are 10 digits long. These functions convert an integer (from eg an ID AutoField) to a short unique string. This is done simply using a perfect hash function and converting the result into a string of user friendly characters.
 
 =head1 VERSION
 
-Version 0.013
+Version 0.014
 
 =cut
 
-our $VERSION = '0.013';
+our $VERSION = '0.014';
 
 =head1 SYNOPSIS
 
@@ -35,14 +35,16 @@ our $VERSION = '0.013';
 
 =head1 SIGNIFICANCE / USES
 
-"Description: Invoice numbers like "0000004" are unprofessional in that they 
-expose how many sales a system has made, and can be used to monitor
-the rate of sales over a given time.  They are also harder for 
-customers to read back to you, especially if they are 10 digits long.  
-These functions convert an integer (from eg an ID AutoField) to a
-short unique string. This is done simply using a perfect hash
-function and converting the result into a string of user friendly
-characters."
+From Will Hardy's pydoc:
+
+    "Description: Invoice numbers like "0000004" are unprofessional in that they 
+    expose how many sales a system has made, and can be used to monitor
+    the rate of sales over a given time.  They are also harder for 
+    customers to read back to you, especially if they are 10 digits long.  
+    These functions convert an integer (from eg an ID AutoField) to a
+    short unique string. This is done simply using a perfect hash
+    function and converting the result into a string of user friendly
+    characters."
 
 =head1 ATTRIBUTES
 

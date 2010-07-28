@@ -1,5 +1,14 @@
 Revision history for String-FriendlyID
 
-0.01    Date/time
+0.01    July 26, 2010
         First version, released on an unsuspecting world.
-
+0.011   July 26, 2010
+        Modified POD errors
+0.012   July 27, 2010
+        Modified POD errors
+0.013   July 27, 2010
+        Modified POD errors
+        Added if Numerical String or Number checking
+0.014   July 28, 2010/20:21
+        Modified Description for better searchability
+        Modified this changelog 
