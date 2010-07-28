@@ -6,15 +6,15 @@ use Moose;
 
 =head1 NAME 
 
-String::FriendlyID - A slightly modified perl port of Will Hardy's "Friendly ID" (http://www.djangosnippets.org/snippets/1249/). Invoice numbers like "0000004" are unprofessional in that they expose how many sales a system has made, and can be used to monitor the rate of sales over a given time.  They are also harder for customers to read back to you, especially if they are 10 digits long. These functions convert an integer (from eg an ID AutoField) to a short unique string. This is done simply using a perfect hash function and converting the result into a string of user friendly characters.
+String::FriendlyID - use to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
 
 =head1 VERSION
 
-Version 0.014
+Version 0.015
 
 =cut
 
-our $VERSION = '0.014';
+our $VERSION = '0.015';
 
 =head1 SYNOPSIS
 
@@ -33,9 +33,9 @@ our $VERSION = '0.014';
     my $some_numerical_string = '12345';
     my $friendly_id = $fid->encode($some_numerical_string);
 
-=head1 SIGNIFICANCE / USES
+=head1 DESCRIPTION / USES
 
-From Will Hardy's pydoc:
+This is a slightly modified perl port of Will Hardy's "Friendly ID" (http://www.djangosnippets.org/snippets/1249/) that converts an integer (from eg an ID AutoField) to a short unique "Friendly" string or ID for that matter. Excerpting Will Hardy's description (from his pydoc):
 
     "Description: Invoice numbers like "0000004" are unprofessional in that they 
     expose how many sales a system has made, and can be used to monitor
@@ -45,6 +45,8 @@ From Will Hardy's pydoc:
     short unique string. This is done simply using a perfect hash
     function and converting the result into a string of user friendly
     characters."
+
+String::FriendlyID keeps an arrayref of valid chars that it uses to construct the friendly ID (see "valid_chars" attribute), you can override this with whatever characters you want to include (see "valid_chars" attribute for the default values).
 
 =head1 ATTRIBUTES
 

@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:               String-FriendlyID
-version:            0.014
-abstract:           A slightly modified perl port of Will Hardy's "Friendly ID" (http://www.djangosnippets.org/snippets/1249/). Invoice numbers like "0000004" are unprofessional in that they expose how many sales a system has made, and can be used to monitor the rate of sales over a given time.  They are also harder for customers to read back to you, especially if they are 10 digits long. These functions convert an integer (from eg an ID AutoField) to a short unique string. This is done simply using a perfect hash function and converting the result into a string of user friendly characters.
+version:            0.015
+abstract:           use to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
 author:
     - Jonathan D. Gutierrez <atanation@cpan.org>
 license:            perl
