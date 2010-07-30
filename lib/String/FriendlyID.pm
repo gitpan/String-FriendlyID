@@ -6,15 +6,15 @@ use Moose;
 
 =head1 NAME 
 
-String::FriendlyID - use to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
+String::FriendlyID - use this to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
 
 =head1 VERSION
 
-Version 0.015
+Version 0.016
 
 =cut
 
-our $VERSION = '0.015';
+our $VERSION = '0.016';
 
 =head1 SYNOPSIS
 
@@ -196,10 +196,10 @@ sub encode {
     my $num    = shift; 
 
     if ($num =~ /\D/){
-        warn "Non numeric string on num=[" . $num . "], try to input numbers / numerical strings";
+        return '';
     }
 
-    return ( (int($num) > int($self->size)) or (int($num) < 0) ) ? undef : $self->friendly_number( $self->perfect_hash( int($num) ) ); 
+    return ( (int($num) > int($self->size)) or (int($num) < 0) ) ? '' : $self->friendly_number( $self->perfect_hash( int($num) ) ); 
 
 }
 
@@ -209,7 +209,7 @@ Jonathan D. Gutierrez, C<< <atanation at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-friendlyid at rt.cpan.org>, or through
+Please report any bugs or feature requests to C<bug-string-friendlyid at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=String-FriendlyID>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 

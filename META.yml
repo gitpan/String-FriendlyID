@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:               String-FriendlyID
-version:            0.015
-abstract:           use to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
+version:            0.016
+abstract:           use this to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
 author:
     - Jonathan D. Gutierrez <atanation@cpan.org>
 license:            perl

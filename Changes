@@ -14,3 +14,6 @@ Revision history for String-FriendlyID
         Modified this changelog 
 0.015   July 29, 2010/02:26
         Modified Description for better searchability, seems theres a limit need to paraphrase or something
+0.016   July 30, 2010/20:12
+        Fix pod typos
+        Add tests
