@@ -10,11 +10,11 @@ String::FriendlyID - use this to convert an integer (from eg an ID AutoField) to
 
 =head1 VERSION
 
-Version 0.016
+Version 0.017
 
 =cut
 
-our $VERSION = '0.016';
+our $VERSION = '0.017';
 
 =head1 SYNOPSIS
 

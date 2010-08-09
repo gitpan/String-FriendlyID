@@ -17,3 +17,6 @@ Revision history for String-FriendlyID
 0.016   July 30, 2010/20:12
         Fix pod typos
         Add tests
+0.017   July 30, 2010/20:12
+        Add tests 01-functionality.t
+        Forgot in MANIFEST
