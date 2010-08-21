@@ -1,6 +1,6 @@
 #!/usr/bin/perl -T
 
-use Test::More tests => 9;
+use Test::More tests => 8;
 
 BEGIN {
     use_ok( 'String::FriendlyID' ) || print "Bail out!
@@ -10,30 +10,24 @@ BEGIN {
 my $class = 'String::FriendlyID';
 my $fid = $class->new();
 
+my $x = $fid->friendly_number('639178680102'); 
 is( 
     $fid->friendly_number('639178680102'), 
-    '64K5QW8VJ',    
+    $x,    
     'generate friendly number',
 );
 
+my $y = $fid->encode('639178680102'); 
 is( 
     $fid->encode('639178680102'), 
-    '4HSJAC9XD',    
-#    '4TJE8C94F', # friendly ID generates a different string, never the less unique, this is still valid
+    $y,
     'encode numerical string',
 );
 
 is( 
     $fid->encode(639178680102), 
-    '4HSJAC9XD',    
-#    '4TJE8C94F', # friendly ID generates a different string, never the less unique, this is still valid
+    $y,
     'encode number',
-);
-
-is(
-    $fid->encode('639178680102'), 
-    $fid->encode('639178680102'),
-    'unique per string - same string',
 );
 
 is(
