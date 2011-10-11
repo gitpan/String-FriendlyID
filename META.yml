@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               String-FriendlyID
-version:            0.018
+version:            0.019
 abstract:           use this to convert an integer (from eg an ID AutoField) to a short unique "Friendly" string ( no confusing values like 1/I/l, 0/O , Z/2 )
 author:
     - Jonathan D. Gutierrez <atanation@cpan.org>
@@ -11,7 +11,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Moose:       0.63
+    Mouse:       0.97
     Test::More:  0.86
 no_index:
     directory:
